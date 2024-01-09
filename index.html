@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提醒页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .message {
+            padding: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h2>此网页暂不支持在手机上打开</h2>
+        <h3>请到电脑端打开此网页以获得最佳体验</h3>
+        <span id="countdown-number">10</span> 秒后将为您打开bilibili
+    </div>
+
+<script>
+    // 获取显示倒计时的元素
+    var countdownElement = document.getElementById('countdown-number');
+
+    // 设置初始倒计时时间
+    var countdown = 10;
+
+    // 更新倒计时并在倒计时结束时跳转
+    function updateCountdown() {
+        countdown -= 1;
+        countdownElement.textContent = countdown;
+
+        if (countdown <= 0) {
+            window.location.href = "https://www.bilibili.com";  // 替换成您要跳转的网址
+        } else {
+            setTimeout(updateCountdown, 1000);  // 每秒更新一次倒计时
+        }
+    }
+
+    // 页面加载后开始倒计时
+    window.onload = function () {
+        updateCountdown();
+    };
+</script>
+
+</body>
+</html>
